@@ -14,12 +14,13 @@ object FileConverter {
   //    write(out, str.toUpperCase())
   def convert(in: File, out: File)
   : IO[Either[Error, Unit]] = {
-    val r = for {
+//    val r = for {
+    for {
       str <- read(in)
       _ <- write(out, str.toUpperCase())
     } yield ()
-    r.value // this gets the IO[Either[Error, Unit]]
-  }
+//    r.value // this gets the IO[Either[Error, Unit]]
+  }.value
 
 
   //  private def write(file: File, s: String): Unit = {
